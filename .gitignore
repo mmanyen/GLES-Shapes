@@ -1,0 +1,30 @@
+# List out the files to be ignored by git
+*.o
+*.a
+*.ignore
+*.obj
+*.exe
+*.db
+**/Release
+**/x64
+**/Debug
+*.pdb
+*.ilk
+*.tlog
+*.suo
+*.opendb
+*.vtg
+*.vpwhist
+*.vpwhistu
+**/CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+# Specific Folders
+**/.vscode
+**/build
+CMakeLocal.txt
+*.otf
+*.png
+MemoryDebug.txt
+**/.vs
