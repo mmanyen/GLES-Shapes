@@ -13,9 +13,9 @@ static const char* pColorSpriteFragShader = SHADER_GLSLV(
     320, 
     precision mediump float; 
     uniform sampler2D uSampler2d; 
-    in vec2 v_texCoord; 
-    in vec4 vColor;
-    out vec4 fragColor; 
+    layout(location = 0) in vec2 v_texCoord; 
+    layout(location = 1) in vec4 vColor;
+    layout(location = 0) out vec4 fragColor; 
     void main(void) 
     {
         vec4 color = texture(uSampler2d, v_texCoord) * vColor;
@@ -29,10 +29,11 @@ static const char* pColorSpriteVertShader = SHADER_GLSLV(
     320, 
     precision mediump float; 
     uniform mat4 uModelview; 
-    in vec4 aPosition; 
-    in vec2 aUV;
-    in vec4 aColor; 
-    out vec2 v_texCoord; out vec4 vColor; 
+    layout(location = 0) in vec4 aPosition; 
+    layout(location = 1) in vec2 aUV;
+    layout(location = 2) in vec4 aColor; 
+    layout(location = 0) out vec2 v_texCoord; 
+    layout(location = 1) out vec4 vColor; 
     void main() 
     {
         vColor = aColor;
@@ -44,8 +45,8 @@ static const char* pBasicSpriteFragShader = SHADER_GLSLV(
     320, 
     precision mediump float; 
     uniform sampler2D uSampler2d; 
-    in vec2 v_texCoord;
-    out vec4 fragColor; 
+    layout(location = 0) in vec2 v_texCoord;
+    layout(location = 0) out vec4 fragColor; 
     void main(void) 
     {
         vec4 color = texture(uSampler2d, v_texCoord);
@@ -58,10 +59,10 @@ static const char* pBasicSpriteFragShader = SHADER_GLSLV(
 static const char* pBasicSpriteVertShader = SHADER_GLSLV(
     320, 
     precision mediump float; 
-    in vec4 aPosition; 
-    in vec2 aUV; 
+    layout(location = 0) in vec4 aPosition; 
+    layout(location = 1) in vec2 aUV; 
     uniform mat4 uModelview;
-    out vec2 v_texCoord; 
+    layout(location = 0) out vec2 v_texCoord; 
     void main() 
     {
         v_texCoord = aUV.st;
@@ -71,7 +72,7 @@ static const char* pBasicSpriteVertShader = SHADER_GLSLV(
 static const char* pColorFillFragShader = SHADER_GLSLV(
     320, 
     precision mediump float; 
-    in vec4 vColor; 
+    layout(location = 0) in vec4 vColor; 
     out vec4 fragColor; 
     void main(void) 
     {
@@ -87,10 +88,10 @@ static const char* pColorFillFragShader = SHADER_GLSLV(
 static const char* pColorFillVertShader = SHADER_GLSLV(
     320, 
     precision mediump float; 
-    in vec4 aPosition; 
     uniform mat4 uModelview; 
+    in vec4 aPosition; 
     in vec4 aColor;
-    out vec4 vColor; 
+    layout(location = 0) out vec4 vColor; 
     void main() 
     {
         vColor = aColor;
@@ -99,10 +100,10 @@ static const char* pColorFillVertShader = SHADER_GLSLV(
 static const char* pFontVertexShader = SHADER_GLSLV(
     320, 
     precision mediump float; 
-    in vec4 aPosition; 
-    in vec2 aUV; 
+    layout(location = 0) in vec4 aPosition; 
+    layout(location = 1) in vec2 aUV; 
     uniform mat4 uModelview;
-    out vec2 v_texCoord; 
+    layout(location = 0) out vec2 v_texCoord; 
     void main() 
     {
         v_texCoord = aUV.st;
@@ -114,8 +115,8 @@ static const char* pFontFragmentShader = SHADER_GLSLV(
     precision mediump float; 
     uniform vec4 uColor; 
     uniform sampler2D uSampler2d;
-    in vec2 v_texCoord; 
-    out vec4 vColor; 
+    layout(location = 0) in vec2 v_texCoord; 
+    layout(location = 0) out vec4 vColor; 
     void main(void) 
     {
         vColor = texture(uSampler2d, v_texCoord);

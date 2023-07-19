@@ -22,30 +22,30 @@ if(UNIX)
 add_definitions(
   -DPLATFORM_LINUX
 )
-set(GLES2_LIBS GLESv2 glfw)
+#set(GLES2_LIBS GLESv2 glfw)
 
 endif(UNIX)
 
-
+cmake_policy(SET CMP0115 OLD)
 
 add_executable(Basic
   ${PROJECT_HOME}/main.cpp
 
-  ${PROJECT_HOME}/system/Log.cpp
-  ${PROJECT_HOME}/system/GLFW_Platform
+  ${PROJECT_HOME}/system/src/base/Log.cpp
+  ${PROJECT_HOME}/system/src/base/GLFW_Platform.cpp
   ${PROJECT_HOME}/support/src/glad.c
-  ${PROJECT_HOME}/system/Primitives/ESShaderRepository.cpp
-  ${PROJECT_HOME}/system/Primitives/RenderPacket.cpp
-  #${PROJECT_HOME}/debug_new.cpp
+  ${PROJECT_HOME}/system/src/base/ESShaderRepository.cpp
+  ${PROJECT_HOME}/system/src/base/RenderPacket.cpp
 
-  ${PROJECT_HOME}/ShapeDrawing.cpp
+  ${PROJECT_HOME}/system/src/primitives/ShapeDrawing.cpp
 )
 
 target_link_libraries(Basic ${GLES2_LIBS} )
 target_include_directories(Basic PUBLIC
-  ${PROJECT_HOME}/system
-  ${PROJECT_HOME}/system/Primitives
+  ${PROJECT_HOME}/system/src/base
+  ${PROJECT_HOME}/system/src/primitives
   ${PROJECT_HOME}/support/include
+  ${PROJECT_HOME}/system/include
 )
 target_compile_definitions(Basic PUBLIC GLFW_INCLUDE_ES2)
 
