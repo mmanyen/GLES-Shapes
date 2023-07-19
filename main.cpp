@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
    IPlatform& rPlatform = IPlatform::instance();
 
    // TODO: Switch to smart pointer
-   std::list<IShape*> sceneGraph;
+   std::list<IPrimitive*> sceneGraph;
    // Create some shapes
    sceneGraph.push_back(new CLine(0.0f, 0.0f, -0.7f, -0.5f, (10.0f / 1024.0f)));
    sceneGraph.push_back(new CCircle(0.6f, 0.5f, 0.2f, 35));

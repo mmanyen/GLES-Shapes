@@ -2,22 +2,22 @@
 #include <stdint.h>
 class RenderPacket;
 
-class IShape
+class IPrimitive
 {
 public:
-   IShape() = default;
-   virtual ~IShape() {}
+   IPrimitive() = default;
+   virtual ~IPrimitive() {}
    virtual void Instantiate() = 0;
    virtual void Draw() = 0;
 
-   IShape(const IShape&) = delete;
-   IShape& operator=(const IShape&) = delete;
+   IPrimitive(const IPrimitive&) = delete;
+   IPrimitive& operator=(const IPrimitive&) = delete;
 protected:
    RenderPacket* mpRenderPacket = nullptr;
 
 };
 
-class CLine : public IShape
+class CLine : public IPrimitive
 {
 public:
    CLine() { CLine(0,0,400,400, 2); }
@@ -35,7 +35,7 @@ protected:
    float fWidth;
 };
 
-class CCircle : public IShape
+class CCircle : public IPrimitive
 {
 public:
    CCircle();
@@ -52,7 +52,7 @@ protected:
    int sides;
 };
 
-class CCircleLine : public IShape
+class CCircleLine : public IPrimitive
 {
 public:
    CCircleLine();
@@ -67,7 +67,7 @@ protected:
    float mradius, msides;
 }; 
 
-class CFanLine : public IShape
+class CFanLine : public IPrimitive
 {
 public:
    CFanLine();
@@ -84,7 +84,7 @@ protected:
    float mstart, mstop;
 };
 
-class CFan : public IShape
+class CFan : public IPrimitive
 {
 public:
    CFan();
@@ -102,7 +102,7 @@ protected:
    float mstop;
 };
 
-class CRoundRectangle : public IShape
+class CRoundRectangle : public IPrimitive
 {
 public:
    CRoundRectangle();

@@ -10,7 +10,7 @@ constexpr double PI = 3.14159265359;
 constexpr double TWOPI = PI * 2;
 constexpr double DEG2RAD = 0.0174533;
 
-CLine::CLine(float tx0, float ty0, float tx1, float ty1, float tfWidth) : IShape(), 
+CLine::CLine(float tx0, float ty0, float tx1, float ty1, float tfWidth) : IPrimitive(), 
    x0(tx0), y0(ty0), x1(tx1), y1(ty1), fWidth(tfWidth)
 {
    mpRenderPacket = new RenderPacket();
@@ -168,7 +168,7 @@ void CLine::Draw()
 
 }
 /*******************************************/
-CCircle::CCircle(float tx0, float ty0, float tradius, int tsides) : IShape(),
+CCircle::CCircle(float tx0, float ty0, float tradius, int tsides) : IPrimitive(),
    x0(tx0), y0(ty0), radius(tradius), sides(tsides)
 {
    mpRenderPacket = NULL;
@@ -258,7 +258,7 @@ CCircleLine::CCircleLine()
 {
    CCircleLine(-0.6f, -0.5f, 0.2f, 35);
 }
-CCircleLine::CCircleLine(float x0, float y0, float radius, int sides) : IShape(),
+CCircleLine::CCircleLine(float x0, float y0, float radius, int sides) : IPrimitive(),
    mx0(x0), my0(y0), mradius(radius), msides(sides)
 {
    mpRenderPacket = nullptr;
@@ -338,7 +338,7 @@ CFanLine::CFanLine()
    CFanLine(-0.6f, 0.5f, 0.2f, 15, 0, 180);
 }
 
-CFanLine::CFanLine(float x0, float y0, float radius, int sides, float start, float stop) : IShape(),
+CFanLine::CFanLine(float x0, float y0, float radius, int sides, float start, float stop) : IPrimitive(),
    mx0(x0), my0(y0), mradius(radius), msides(sides), mstart(start), mstop(stop)
 {
    mpRenderPacket = NULL;
@@ -419,7 +419,7 @@ CFan::CFan()
    CFan(-0.4, 0.1f, 200.0 / 1024.0, 10, 90, 180);
 }
 
-CFan::CFan(float x0, float y0, float radius, int sides, float start, float stop)  : IShape(),
+CFan::CFan(float x0, float y0, float radius, int sides, float start, float stop)  : IPrimitive(),
    mx0(x0), my0(y0), mradius(radius), msides(sides), mstart(start), mstop(stop)
 {
    mpRenderPacket = NULL;
@@ -506,7 +506,7 @@ CRoundRectangle::CRoundRectangle()
    CRoundRectangle(-0.9, 0.9, 0.9, -0.9, 40.0 / 1024.0);
 }
 
-CRoundRectangle::CRoundRectangle(float x0, float y0, float x1, float y1, float width) :IShape(),
+CRoundRectangle::CRoundRectangle(float x0, float y0, float x1, float y1, float width) :IPrimitive(),
    mx0(x0), my0(y0), mx1(x1), my1(y1), mwidth(width)
 {
    for (int i = 0; i < 4; i++)
