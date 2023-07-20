@@ -28,3 +28,4 @@ CMakeLocal.txt
 *.png
 MemoryDebug.txt
 **/.vs
+.cache
