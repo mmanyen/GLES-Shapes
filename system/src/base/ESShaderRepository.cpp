@@ -32,8 +32,8 @@ static const char* pColorSpriteVertShader = SHADER_GLSLV(
     layout(location = 0) in vec4 aPosition; 
     layout(location = 1) in vec2 aUV;
     layout(location = 2) in vec4 aColor; 
-    layout(location = 0) out vec2 v_texCoord; 
-    layout(location = 1) out vec4 vColor; 
+    out vec2 v_texCoord; 
+    out vec4 vColor; 
     void main() 
     {
         vColor = aColor;
@@ -172,7 +172,7 @@ static int32_t compileShader(const char* pFragment, const char* pVertex)
         // MessageBox(hWnd, i32InfoLogLength ? pszInfoLog : _T(""), _T("Failed to compile fragment
         // shader"), MB_OK|MB_ICONEXCLAMATION);
 
-        log(Log::L_ERROR, "Failed to compile fragment shader: %s", pszInfoLog);
+        addlog(Log::L_ERROR, "Failed to compile fragment shader: %s", pszInfoLog);
         delete[] pszInfoLog;
     }
 
@@ -192,7 +192,7 @@ static int32_t compileShader(const char* pFragment, const char* pVertex)
         // assert/abort
         // MessageBox(hWnd, i32InfoLogLength ? pszInfoLog : _T(""), _T("Failed to compile vertex
         // shader"), MB_OK|MB_ICONEXCLAMATION);
-        log(Log::L_ERROR, "Failed to compile vertex shader: %s", pszInfoLog);
+        addlog(Log::L_ERROR, "Failed to compile vertex shader: %s", pszInfoLog);
 
         delete[] pszInfoLog;
     }
@@ -223,7 +223,7 @@ static int32_t compileShader(const char* pFragment, const char* pVertex)
         // assert/error
         // MessageBox(hWnd, i32InfoLogLength ? pszInfoLog : _T(""), _T("Failed to link program"),
         // MB_OK|MB_ICONEXCLAMATION);
-        log(Log::L_ERROR, "Failed to link shader program: %s", pszInfoLog);
+        addlog(Log::L_ERROR, "Failed to link shader program: %s", pszInfoLog);
 
         delete[] pszInfoLog;
     }

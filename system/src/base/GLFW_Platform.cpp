@@ -98,8 +98,8 @@ GLFWPlatform::GLFWPlatform() : IPlatform()
     gladLoadGLES2Loader((GLADloadproc) glfwGetProcAddress);
     glfwSwapInterval(1);
 
-   vlog(Log::L_INFO, "GL_VERSION  : %s\n", glGetString(GL_VERSION));
-   vlog(Log::L_INFO, "GL_RENDERER : %s\n", glGetString(GL_RENDERER));
+   vaddlog(Log::L_INFO, "GL_VERSION  : %s\n", glGetString(GL_VERSION));
+   vaddlog(Log::L_INFO, "GL_RENDERER : %s\n", glGetString(GL_RENDERER));
 
    glfwSetCursorPosCallback(mWindow, cursor_position_callback);
    glfwSetMouseButtonCallback(mWindow, mouse_button_callback);
@@ -146,7 +146,7 @@ IPlatform& IPlatform::instance(void)
    if (!sPlatform.Ready())
    {
       // TODO: Assert?
-      log(Log::L_ERROR, "Platform not ready!");
+      addlog(Log::L_ERROR, "Platform not ready!");
    }
 
    return sPlatform;

@@ -1,3 +1,4 @@
+#include "BaseSprite.h"
 #include "glad/glad.h"
 #include <GLFW/glfw3.h>  // Includes <GLES2/gl2.h>
 
@@ -22,6 +23,7 @@ int main(int argc, char* argv[])
    sceneGraph.push_back(new CFanLine(-0.6f, 0.5f, 0.2f, 15, 0, 180));
    sceneGraph.push_back(new CFan(-0.4, 0.1f, 200.0 / 1024.0, 10, 90, 180));
    sceneGraph.push_back(new CRoundRectangle(-0.9, 0.9, 0.9, -0.9, 40.0 / 1024.0));
+   sceneGraph.push_back(new BaseSprite({-0.5, 0.0, -1.0, -1.0}, "assets/logo32.png" ));
    // Instanciate all shapes
    for(auto s : sceneGraph)
    {

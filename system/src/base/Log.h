@@ -15,14 +15,14 @@ namespace Log
    void Add(const Level level, const char* s, ...);
 }
 
-#define log(lvl, msg, ...)                                              \
+#define addlog(lvl, msg, ...)                                              \
    {                                                                    \
       Log::Add(lvl, "[%s:%d] " msg, __FILE__, __LINE__, ##__VA_ARGS__); \
    }                                                                    \
    (void)0
 
 // Log sans file/line (vanilla)
-#define vlog(lvl, msg, ...)                                             \
+#define vaddlog(lvl, msg, ...)                                             \
    {                                                                    \
       Log::Add(lvl, msg, ##__VA_ARGS__);                                \
    }                                                                    \

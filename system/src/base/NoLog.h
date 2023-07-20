@@ -4,9 +4,9 @@
 #undef log
 #endif
 
-#ifdef vlog
-#undef vlog
+#ifdef vaddlog
+#undef vaddlog
 #endif
 
 #define log(lvl, msg, ...) {  }  (void)0
-#define vlog(lvl, msg, ...) {  }  (void)0
+#define vaddlog(lvl, msg, ...) {  }  (void)0

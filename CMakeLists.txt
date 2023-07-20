@@ -36,8 +36,13 @@ add_executable(Basic
   ${PROJECT_HOME}/support/src/glad.c
   ${PROJECT_HOME}/system/src/base/ESShaderRepository.cpp
   ${PROJECT_HOME}/system/src/base/RenderPacket.cpp
+  ${PROJECT_HOME}/system/src/base/Color.cpp
+  ${PROJECT_HOME}/system/src/base/ScreenRect.cpp
+  ${PROJECT_HOME}/system/src/base/ScreenLoc.cpp
+  ${PROJECT_HOME}/system/src/base/stb_image.c
 
-  ${PROJECT_HOME}/system/src/primitives/ShapeDrawing.cpp
+  ${PROJECT_HOME}/system/src/primitives/ShapeDrawing.cpp 
+  ${PROJECT_HOME}/system/src/primitives/BaseSprite.cpp
 )
 
 target_link_libraries(Basic ${GLES2_LIBS} )
